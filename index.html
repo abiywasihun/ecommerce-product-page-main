@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | E-commerce product page</title>
 <link rel="stylesheet" type="text/css" href="css/styles.css">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
+
+
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
@@ -32,14 +37,16 @@
   
   </div>
       <div class="header__right">
-        <div class="cart__icon"><svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#69707D" fill-rule="nonzero"/></svg></div>
+        <div id="cart__icon" class="cart__icon">
+          <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#69707D" fill-rule="nonzero"/></svg>
+         <div id="show_cart" class="show_cart">
+          <div class="cart__title_"><h3 class="cart_title">Cart</h3></div>
+         <div id="show__cart"></div>
+        </div></div>
         <div class="avatar__img">
           <img class="avatar_src" src="./images/image-avatar.png" alt="user">
         </div>
-        <div class="show_cart">
-          <div class="cart__title_"><h3 class="cart_title">Cart</h3></div>
-          <span class="cart_body">Your cart is empty</span> 
-        </div>
+       
       </div>
 
     </header>
@@ -47,37 +54,51 @@
        <div class="content__left">
          <img class="product__image" src="./images/image-product-1.jpg" alt="product image">
          <div class="image__list">
-           <img class="list__image active"   src="./images/image-product-1-thumbnail.jpg" alt="Image List"></img>
-           <img class="list__image"  src="./images/image-product-2-thumbnail.jpg" alt="Image List"></img>
-           <img class="list__image"  src="./images/image-product-3-thumbnail.jpg" alt="Image List"></img>
-           <img class="list__image"  src="./images/image-product-4-thumbnail.jpg" alt="Image List"></img>
+           <img class="list__image active"  onclick="openModal(); currentSlide(1)" src="./images/image-product-1-thumbnail.jpg" alt="Image List"></img>
+           <img class="list__image"  onclick="openModal(); currentSlide(2)" src="./images/image-product-2-thumbnail.jpg" alt="Image List"></img>
+           <img class="list__image"  onclick="openModal(); currentSlide(3)" src="./images/image-product-3-thumbnail.jpg" alt="Image List"></img>
+           <img class="list__image"  onclick="openModal(); currentSlide(4)" src="./images/image-product-4-thumbnail.jpg" alt="Image List"></img>
          </div>
        </div>
        <div class="content__right">
-         <h5 class="company__title">Sneaker Company</h5>
-         <h2 class="content__title">Fall Limited Edition Sneakers</h2>
+         <h5 id="company__title" class="company__title">Sneaker Company</h5>
+         <h2 id="content__title" class="content__title">Fall Limited Edition Sneakers</h2>
          <p class="content__desc">These low-profile sneakers are your perfect casual wear companion. Featuring a 
   durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
   <div class="content__price">
     <div class="intial__price">
-      <p class="discount__price">$125.00</p>
+      <p id="company__price" class="discount__price">$125.00</p>
       <p class="discount__percent">50%</p>
     </div>
     <p class="intial_p">$250.00</p>
   </div>
   <div class="content__buttons">
-    <button class="minus_button">-</button>
-    <input class="quantity_input" type="number" name="quantity" value="0">
-    <button class="plus_button">+</button>
-    <button class="cart_button"><svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#fff" fill-rule="nonzero"/></svg>Add to cart</button>
+    <button onclick=productDecrement()  id="minusButton" class="minus_button">-</button>
+    <input class="quantity_input" type="number" id="quantity" name="quantity" value="1">
+    <button onclick=productIncrement() class="plus_button">+</button>
+    <button onclick=addToCart() class="cart_button"><svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#fff" fill-rule="nonzero"/></svg>Add to cart</button>
   </div>
        </div>
      </div>
   </div>
-  
+  <div id="modal_images" class="modal__images">
+
+           <img class="modal__image "  id="modal__image_1" src="./images/image-product-1.jpg" alt="Image List"></img>
+           <img class="modal__image"   id="modal__image_2"src="./images/image-product-2.jpg" alt="Image List"></img>
+           <img class="modal__image"   id="modal__image_3"src="./images/image-product-3.jpg" alt="Image List"></img>
+           <img class="modal__image"   id="modal__image_4"src="./images/image-product-4.jpg" alt="Image List"></img>
+            <div class="prev" onclick="minusSlides()">
+              <i class="fa-solid fa-angle-left"></i>
+            </div>
+            <div class="next" onclick="plusSlides()"><i class="fa-solid fa-angle-right"></i></div>
+             <span onclick=closeModal() class="close">&times;</span>
+
+
+         </div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+  <script type="text/javascript" src="./js/main.js"></script>
 </body>
 </html>
