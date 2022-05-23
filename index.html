@@ -21,18 +21,21 @@
 </head>
 <body>
 
-  <div class="container">
+  <div id="container" class="container">
     <header class="header__container">
       <div class="header__left">
+       <i onclick=opensidebarMenu() class="fa-solid fa-bars menu__bars"></i>
        
         <h3 class="brand">sneakers</h3> 
-        <div class="left__items">
+        <div id="itemLeft" class="itemLeft"> 
+        <div id="left__items" class="left__items">
+          <i onclick=closesidebarMenu() class="fa-solid fa-xmark menu__bars close_menu"></i>
         <span class="left__item">Collections</span> 
         <span class="left__item">Men</span> 
         <span class="left__item">Women</span> 
         <span class="left__item">About</span> 
         <span class="left__item">Contact</span> 
-  
+  </div>
   </div>
   
   </div>
@@ -51,6 +54,20 @@
 
     </header>
      <div class="content__body">
+        <div id="modal_images" class="modal__images">
+
+           <img class="modal__image active_li"  id="modal__image_1" src="./images/image-product-1.jpg" alt="Image List"></img>
+           <img class="modal__image"   id="modal__image_2"src="./images/image-product-2.jpg" alt="Image List"></img>
+           <img class="modal__image"   id="modal__image_3"src="./images/image-product-3.jpg" alt="Image List"></img>
+           <img class="modal__image"   id="modal__image_4"src="./images/image-product-4.jpg" alt="Image List"></img>
+            <div class="prev" onclick="minusSlides()">
+              <i class="fa-solid fa-angle-left"></i>
+            </div>
+            <div class="next" onclick="plusSlides()"><i class="fa-solid fa-angle-right"></i></div>
+             <span onclick=closeModal() class="close">&times;</span>
+
+
+         </div>
        <div class="content__left">
          <img class="product__image" src="./images/image-product-1.jpg" alt="product image">
          <div class="image__list">
@@ -81,20 +98,7 @@
        </div>
      </div>
   </div>
-  <div id="modal_images" class="modal__images">
 
-           <img class="modal__image "  id="modal__image_1" src="./images/image-product-1.jpg" alt="Image List"></img>
-           <img class="modal__image"   id="modal__image_2"src="./images/image-product-2.jpg" alt="Image List"></img>
-           <img class="modal__image"   id="modal__image_3"src="./images/image-product-3.jpg" alt="Image List"></img>
-           <img class="modal__image"   id="modal__image_4"src="./images/image-product-4.jpg" alt="Image List"></img>
-            <div class="prev" onclick="minusSlides()">
-              <i class="fa-solid fa-angle-left"></i>
-            </div>
-            <div class="next" onclick="plusSlides()"><i class="fa-solid fa-angle-right"></i></div>
-             <span onclick=closeModal() class="close">&times;</span>
-
-
-         </div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.

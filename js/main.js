@@ -22,7 +22,12 @@ const checkCheckout=()=>{
 	document.getElementById('show__cart').innerHTML=cartData
 }
 checkCheckout()
-
+const opensidebarMenu=()=>{
+document.getElementById('itemLeft').style.display='block'
+}
+const closesidebarMenu=()=>{
+document.getElementById('itemLeft').style.display='none'
+}
 var cartIcon = document.getElementById("cart__icon");
 cartIcon.addEventListener('mouseover',function(){
    document.getElementById("show_cart").style.display  = "block";
